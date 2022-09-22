@@ -69,6 +69,6 @@ button.active {
   pointer-events: none;
 }
 
-.check-dot.checked {
+.check-dot.unchecked {
   transform: translate(50%, 50%);
 }/*# sourceMappingURL=style.css.map */

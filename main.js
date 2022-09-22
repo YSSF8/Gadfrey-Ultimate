@@ -57,9 +57,9 @@ const cb = document.querySelector('.checkbox');
 cb.addEventListener('click', () => {
     const checkDot = document.querySelector('.check-dot');
     iframe.contentWindow.document.body.focus();
-    checkDot.classList.toggle('checked');
+    checkDot.classList.toggle('unchecked');
 
-    if (checkDot.classList.contains('checked')) {
+    if (checkDot.classList.contains('unchecked')) {
         cb.style.background = '#1e1e1e';
         iframe.contentWindow.document.body.spellcheck = false;
     } else {
