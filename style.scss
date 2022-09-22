@@ -1,10 +1,15 @@
+$def-gray: #bbb;
+$drk-gray: #1e1e1e;
+$drkr-gray: #121212;
+$blk: #000;
+
 * {
     color: #fff;
     box-sizing: border-box;
 }
 
 body {
-    background: #000;
+    background: $blk;
     color: #fff;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -13,15 +18,16 @@ body {
 }
 
 form {
-    background: #1e1e1e;
-    border: 2px solid #bbb;
+    background: $drk-gray;
+    border: 2px solid $def-gray;
     border-bottom: none;
     border-radius: 8px 8px 0 0;
     padding: 5px;
+    cursor: default;
 }
 
 button {
-    background: #1e1e1e;
+    background: $drk-gray;
     border: none;
     outline: none;
     padding: 7px;
@@ -30,7 +36,7 @@ button {
     transition: background 200ms, box-shadow 200ms;
 
     &:hover {
-        background: #121212;
+        background: $drkr-gray;
     }
 }
 
@@ -39,8 +45,38 @@ button.active {
 }
 
 .output {
-    border: 1.2px solid #bbb;
+    border: 1.2px solid $def-gray;
     border-radius: 0 0 8px 8px;
     width: 40rem;
     height: 20rem;
+}
+
+.checkbox {
+    background: #1169db;
+    width: 45px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 200ms;
+
+    .check-dot {
+        background: $def-gray;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        transform: translate(300%, 50%);
+        transition: transform 200ms;
+    }
+
+    span {
+        font-family: Segoe UI;
+        position: absolute;
+        left: 7.7%;
+        margin-top: -12px;
+        pointer-events: none;
+    }
+}
+
+.check-dot.checked {
+    transform: translate(50%, 50%);
 }

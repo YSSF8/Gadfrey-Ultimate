@@ -51,3 +51,19 @@ for (let i = 0; i < btns.length; i++) {
         }
     });
 }
+
+const cb = document.querySelector('.checkbox');
+
+cb.addEventListener('click', () => {
+    const checkDot = document.querySelector('.check-dot');
+    iframe.contentWindow.document.body.focus();
+    checkDot.classList.toggle('checked');
+
+    if (checkDot.classList.contains('checked')) {
+        cb.style.background = '#1e1e1e';
+        iframe.contentWindow.document.body.spellcheck = false;
+    } else {
+        cb.style.background = '#1169db';
+        iframe.contentWindow.document.body.spellcheck = true;
+    }
+});
