@@ -67,3 +67,12 @@ cb.addEventListener('click', () => {
         iframe.contentWindow.document.body.spellcheck = true;
     }
 });
+
+document.querySelector('.load').addEventListener('click', load);
+
+async function load() {
+    let [fileHandle] = await window.showOpenFilePicker(picker);
+    let fileData = await fileHandle.getFile();
+    let text = await fileData.text();
+    iframe.contentWindow.document.body.innerHTML = text;
+}
