@@ -6,6 +6,7 @@ $blk: #000;
 * {
     color: #fff;
     box-sizing: border-box;
+    font-family: Segoe UI;
 }
 
 body {
@@ -69,7 +70,6 @@ button.active {
     }
 
     span {
-        font-family: Segoe UI;
         position: absolute;
         left: 7.7%;
         margin-top: -12px;
@@ -93,4 +93,28 @@ button.active {
 
 .check-dot.unchecked {
     transform: translate(50%, 50%);
+}
+
+.ctx {
+    background: $drk-gray;
+    border: 1px solid $def-gray;
+    border-radius: 8px;
+    width: 10rem;
+    padding: 7px;
+    position: fixed;
+    transform: scale(0);
+    transform-origin: left top;
+    user-select: none;
+    cursor: default;
+    transition: transform 200ms;
+
+    .option {
+        border-radius: 5px;
+        padding: 5px;
+        transition: background 200ms;
+
+        &:hover {
+            background: $drkr-gray;
+        }
+    }
 }

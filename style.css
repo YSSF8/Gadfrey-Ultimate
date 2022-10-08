@@ -1,6 +1,7 @@
 * {
   color: #fff;
   box-sizing: border-box;
+  font-family: Segoe UI;
 }
 
 body {
@@ -62,7 +63,6 @@ button.active {
   transition: transform 200ms;
 }
 .checkbox span {
-  font-family: Segoe UI;
   position: absolute;
   left: 7.7%;
   margin-top: -12px;
@@ -84,4 +84,29 @@ button.active {
 
 .check-dot.unchecked {
   transform: translate(50%, 50%);
+}
+
+.ctx {
+  background: #1e1e1e;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  width: 10rem;
+  padding: 7px;
+  position: fixed;
+  transform: scale(0);
+  transform-origin: left top;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+  transition: transform 200ms;
+}
+.ctx .option {
+  border-radius: 5px;
+  padding: 5px;
+  transition: background 200ms;
+}
+.ctx .option:hover {
+  background: #121212;
 }/*# sourceMappingURL=style.css.map */

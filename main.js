@@ -4,9 +4,9 @@ let show = false;
 
 const iframe = document.querySelector('.output');
 
-iframe.focus();
-iframe.contentWindow.document.body.style.color = '#fff';
-iframe.contentWindow.document.body.style.fontFamily = 'Segoe UI';
+textField.focus();
+textField.document.body.style.color = '#fff';
+textField.document.body.style.fontFamily = 'Segoe UI';
 
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', () => {
@@ -28,11 +28,17 @@ for (let i = 0; i < btns.length; i++) {
                 const links = textField.document.querySelectorAll('a');
                 links.forEach(item => {
                     item.target = '_blank';
+
+                    item.style.textDecoration = 'none';
+                    item.style.color = '#1169db';
+
                     item.addEventListener('mouseover', () => {
                         textField.document.designMode = 'off';
+                        item.style.textDecoration = 'underline';
                     });
                     item.addEventListener('mouseout', () => {
                         textField.document.designMode = 'on';
+                        item.style.textDecoration = 'none';
                     });
                 });
             }
@@ -48,6 +54,9 @@ for (let i = 0; i < btns.length; i++) {
                 textBody.textContent = textBody.innerHTML;
                 show = true;
             }
+        }
+        if (cmd == 'justifyLeft' || cmd == 'justifyCenter' || cmd == 'justifyRight') {
+            iframe.contentWindow.document.body.focus();
         }
     });
 }
@@ -76,3 +85,31 @@ async function load() {
     let text = await fileData.text();
     iframe.contentWindow.document.body.innerHTML = text;
 }
+
+const ctx = document.querySelector('.ctx');
+
+textField.addEventListener('contextmenu', e => {
+    e.preventDefault();
+    let x = e.clientX, y = e.clientY;
+    ctx.style.transform = 'scale(1)';
+    ctx.style.left = x + 'px';
+    ctx.style.top = y + 'px';
+});
+
+textField.addEventListener('click', () => {
+    ctx.style.transform = 'scale(0)';
+});
+
+ctx.addEventListener('contextmenu', e => {
+    e.preventDefault();
+});
+
+document.querySelector('.clear').addEventListener('click', () => {
+    textField.document.body.innerHTML = '';
+    ctx.style.transform = 'scale(0)';
+});
+
+document.querySelector('.spellcheck').addEventListener('click', () => {
+    cb.click();
+    ctx.style.transform = 'scale(0)';
+});
