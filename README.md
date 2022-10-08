@@ -2,4 +2,4 @@
 
 ## Changelog
 * Changed the default context menu
-* changed the **link text** color
+* Changed the **link text** color
